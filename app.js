@@ -9,12 +9,12 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var methodOverride = require('method-override');
 
-var db = require('./db');
-mongoose.connect('mongodb://localhost/project-2');
+// var db = require('./db');
+// mongoose.connect('mongodb://localhost/project-2');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var authors = require('./routes/author');
+// var authors = require('./routes/author');
 
 var app = express();
 
