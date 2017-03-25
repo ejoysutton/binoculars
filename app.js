@@ -9,8 +9,8 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var methodOverride = require('method-override');
 
-// var db = require('./db');
-// mongoose.connect('mongodb://localhost/project-2');
+var db = require('./db');
+mongoose.connect('mongodb://heroku_8jddbrfh:hugkjreq35221hlopm2vbktdk6@ds025239.mlab.com:25239/heroku_8jddbrfh');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
