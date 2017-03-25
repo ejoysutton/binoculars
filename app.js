@@ -1,12 +1,20 @@
+pry = require('pryjs');
 var express = require('express');
+var mongoose = require('mongoose');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var methodOverride = require('method-override');
+
+var db = require('./db');
+mongoose.connect('mongodb://localhost/project-2');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var authors = require('./routes/author');
 
 var app = express();
 
@@ -21,6 +29,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
+
+app.use(session({
+  secret: "herpaderpatology",
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.use('/', index);
 app.use('/users', users);
