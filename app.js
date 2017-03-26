@@ -12,8 +12,8 @@ var methodOverride = require('method-override');
 var db = require('./db');
 mongoose.connect('mongodb://heroku_8jddbrfh:hugkjreq35221hlopm2vbktdk6@ds025239.mlab.com:25239/heroku_8jddbrfh');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+var index = require('./controllers/index');
+var users = require('./controllers/users');
 // var authors = require('./routes/author');
 
 var app = express();
