@@ -13,3 +13,11 @@
   <li>created_at: {{user.created_at}}</li>
     <li>Number of Sightings: {{user.sightings.length}}</li>
 </ul>
+<form action="/user/{{user.id}}/sightings" method="post">
+  <div>
+    <label for="common_name">Common Name</label>
+    <input type="text" name="common_name">
+  </div>
+
+  <input type="submit" value="Submit">
+</form>

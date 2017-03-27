@@ -6,9 +6,8 @@
 // "/user/:id" dashboard, contains sightings list
 // "/user/:id/sighting/:id" individual sighting
 
-
 var express = require('express');
-var router = express.Router();
+var router = express.Router({ mergeParams: true });
 var User = require('../models/usersModel');
 var Sightings = require('../models/sightingsModel')
 var authHelpers = require('../helpers/auth.js')
@@ -54,6 +53,24 @@ router.post('/', authHelpers.createSecure, function(req, res){
 	});
 });
 
+// USER UPDATE ROUTE
+router.patch('/:id', function(req, res){
+  User.findByIdAndUpdate(req.params.id, req.body
+    // { first_name: req.body.first_name,
+    // last_name: req.body.last_name,
+    // email: req.body.email }
+
+
+    // can just pass in req.body since it contains the above data
+  , { new: true })
+  .exec(function(err, user){
+    if (err) { console.log(err); }
+    console.log(user);
+    res.redirect('/user')
+  });
+});
+
+
 ///Render Badlogin
 router.get('/badlogin', function(req, res){
   console.log('bad login here!');
@@ -76,51 +93,51 @@ router.get('/', function(req, res) {
   });
 });
 
-module.exports = router;
+//////////////////////////////////////////////
+///Sightings
+
+// ADD A NEW SIGHTING
+router.post('/:id/sightings', function(req, res){
+  User.findById(req.params.id)
+  .exec(function(err, user){
+    user.sightings.push(new Sightings({common_name: req.body.common_name}));
+    user.save(function(err){
+      if (err) console.log(err);
+      res.send(user);
+    });
+  });
+});
+
+// REMOVE AN SIGHTING
+router.delete('/:userId/sightings/:id', function(req, res){
+  User.findByIdAndUpdate(req.params.userId, {
+    $pull:{
+      sightings: {_id: req.params.id}
+    }
+  })
+  .exec(function(err, item){
+    if (err) console.log(err);
+    res.redirect('/user/:id')
+  });
+});
+
+// SIGHTING UPDATE ROUTE
+router.patch('/:userId/sightings/:id', function(req, res){
+  User.findByIdAndUpdate(req.params.id, req.body
+    // { first_name: req.body.first_name,
+    // last_name: req.body.last_name,
+    // email: req.body.email }
 
 
-//////
-// var express = require('express');
-// router = express.Router();
-// var User = require('../models/user.js');
-// var authHelpers = require('../helpers/auth.js')
-
-// router.get('/', function(req, res) {
-//   User.find({})
-//   .exec(function(err, users){
-//     if (err) { console.log(err); }
-//     res.render('users/index.hbs', { users: users })
-//   });
-// })
+    // can just pass in req.body since it contains the above data
+  , { new: true })
+  .exec(function(err, user){
+    if (err) { console.log(err); }
+    console.log(user);
+    res.redirect('/:userId/sightings')
+  });
+});
 
 
-
-// router.get('/signup', function(req, res){
-//   res.render('users/signup.hbs');
-// });
-// router.get('/:id', function(req, res) {
-//   User.findById(req.params.id)
-//   .exec(function(err, user) {
-//     if (err) console.log(err);
-//     console.log(user);
-//     // res.render('user/show.hbs', { user: user } );
-//     res.render('users/show.hbs', { user } );
-//   });
-// })
-
-// router.post('/', authHelpers.createSecure, function(req, res){
-//   var user = new User({
-//     email: req.body.email,
-//     password_digest: res.hashedPassword
-//   });
-
-//   user.save(function(err, user){
-//     if (err) console.log(err);
-
-//     console.log(user);
-//     res.redirect('/users');
-//   });
-
-// });
 
 module.exports = router;

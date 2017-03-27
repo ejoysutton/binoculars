@@ -17,7 +17,7 @@ mongoose.connect('mongodb://heroku_8jddbrfh:hugkjreq35221hlopm2vbktdk6@ds025239.
 var usersController = require('./controllers/usersController');
 var sessionsController = require('./controllers/sessionsController');
 var indexController = require('./controllers/indexController');
-var sightingController = require('./controllers/sightingController')
+// var sightingController = require('./controllers/sightingController')
 
 var app = express();
 
@@ -44,7 +44,7 @@ app.use(session({
 // app.use('/users', usersController);
 app.use('/sessions', sessionsController);
 app.use('/', indexController);
-app.use('/user/sightings', sightingController);
+// app.use('/user/sightings', sightingController);
 app.use('/user', usersController);
 
 
