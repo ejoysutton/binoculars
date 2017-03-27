@@ -1,17 +1,24 @@
 var express = require('express');
 var router = express.Router({ mergeParams: true });
 
-var Sighting = require('../controllers/sighting');
+var Sightings = require('../controllers/sighting');
+var User = require('../controllers/users.js');
 
-// index authors
+// index sightings
 router.get('/', function(req, res) {
-    Sighting.find({})
-        .exec(function(err, sightings) {
-            if(err) console.log(err);
+          console.log('sighting here!');
+      res.send('sighting here');
 
-            console.log(sightings);
-            res.render('sightings/index', {
-            	  sightings: sightings
-            });
-        });
+    // Sighting.find({})
+    //     .exec(function(err, sightings) {
+    //         if(err) console.log(err);
+
+    //         console.log('sightings');
+    //         res.send('sightings')
+    //         // res.render('sightings/index', {
+    //         // 	  sightings: sightings
+    //         // });
+    //     });
 });
+
+module.exports = router;
