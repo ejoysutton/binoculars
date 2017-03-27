@@ -9,8 +9,8 @@
 
 var express = require('express');
 var router = express.Router();
-var User = require('../models/users.js');
-var Sightings = require('../models/sightings.js')
+var User = require('../models/usersModel');
+var Sightings = require('../models/sightingsModel')
 var authHelpers = require('../helpers/auth.js')
 
 

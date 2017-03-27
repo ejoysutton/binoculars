@@ -1,5 +1,5 @@
 var bcrypt = require('bcrypt');
-var User = require('../models/users.js');
+var User = require('../models/usersModel.js');
 
 function createSecure(req, res, next) {
   var password = req.body.password;

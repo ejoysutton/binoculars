@@ -10,8 +10,8 @@
 var express = require('express');
 var router = express.Router({ mergeParams: true });
 
-var Sightings = require('../controllers/sighting');
-var User = require('../controllers/users.js');
+var Sightings = require('../controllers/sightingController.js');
+var User = require('../controllers/usersController.js');
 
 // index sightings
 router.get('/', function(req, res) {

@@ -9,8 +9,8 @@
 var express = require('express');
 var router = express.Router();
 
-var User = require("../models/users");
-var Item = require("../models/sightings");
+var User = require("../models/usersModel");
+var Item = require("../models/sightingsModel");
 
 //Index '/'
 router.get('/', function(req, res){

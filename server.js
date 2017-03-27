@@ -14,10 +14,10 @@ var db = require('./db');
 var db = mongoose.connection;
 mongoose.connect('mongodb://heroku_8jddbrfh:hugkjreq35221hlopm2vbktdk6@ds025239.mlab.com:25239/heroku_8jddbrfh');
 
-var usersController = require('./controllers/users');
-var sessionsController = require('./controllers/sessions');
-var indexController = require('./controllers/index');
-var sightingController = require('./controllers/sighting')
+var usersController = require('./controllers/usersController');
+var sessionsController = require('./controllers/sessionsController');
+var indexController = require('./controllers/indexController');
+var sightingController = require('./controllers/sightingController')
 
 var app = express();
 
