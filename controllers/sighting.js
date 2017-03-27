@@ -1,3 +1,12 @@
+// ROUTES NEEDED:
+// "/"
+// "/user"------
+// "/user/signup"
+// "/user/badlogin"
+// "/user/:id" dashboard, contains sightings list
+// "/user/:id/sighting/:id" individual sighting
+
+
 var express = require('express');
 var router = express.Router({ mergeParams: true });
 
@@ -19,6 +28,12 @@ router.get('/', function(req, res) {
     //         // 	  sightings: sightings
     //         // });
     //     });
+});
+
+// individual sighting
+router.get('/:id', function(req, res) {
+          console.log('one sighting here!');
+      res.send('one sighting here');
 });
 
 module.exports = router;

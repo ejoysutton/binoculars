@@ -1,16 +1,18 @@
 var bcrypt = require('bcrypt');
-var User = require('../controllers/users.js');
+var User = require('../models/users.js');
 
 function createSecure(req, res, next) {
-  var password = req.body.password
-
+  var password = req.body.password;
+  console.log(req.params);
   res.hashedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-  next()
-}
+  next();
+};
 
 function loginUser(req, res, next) {
   var email = req.body.email;
   var password = req.body.password;
+
+ var query = User.findOne({ email: email }).exec();
 
   User.findOne({ email: email })
   .then(function(foundUser){
@@ -25,7 +27,7 @@ function loginUser(req, res, next) {
   .catch(function(err){
     res.json({status: 500, data: err})
   });
-}
+};
 
 function authorize(req, res, next) {
   var currentUser = req.session.currentUser
@@ -41,4 +43,4 @@ module.exports = {
   createSecure: createSecure,
   loginUser: loginUser,
   authorize: authorize
-}
+};

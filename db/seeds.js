@@ -21,7 +21,7 @@ var danny = new User({
   name: 'Danny',
   email: 'danny@gmail.com',
   password: 'blugh',
-  items: [{common_name: "American Robin", location: "Orange Park", date: "03/10/2017", time: "12:25"}]
+  items: []
 });
 
 var maren = new User({

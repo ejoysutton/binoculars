@@ -13,7 +13,7 @@ var SightingSchema = new Schema({
 
 var UserSchema = new Schema({
   name: String,
-  password: String,
+  password_digest: String,
   email: String,
   created_at: Date,
   sightings: [SightingSchema]
