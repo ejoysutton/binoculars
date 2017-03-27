@@ -56,12 +56,6 @@ router.post('/', authHelpers.createSecure, function(req, res){
 // USER UPDATE ROUTE
 router.patch('/:id', function(req, res){
   User.findByIdAndUpdate(req.params.id, req.body
-    // { first_name: req.body.first_name,
-    // last_name: req.body.last_name,
-    // email: req.body.email }
-
-
-    // can just pass in req.body since it contains the above data
   , { new: true })
   .exec(function(err, user){
     if (err) { console.log(err); }
@@ -97,7 +91,7 @@ router.get('/', function(req, res) {
 ///Sightings
 
 // ADD A NEW SIGHTING
-router.post('/:id/sightings', function(req, res){
+router.post('/:userId/sightings', function(req, res){
   User.findById(req.params.id)
   .exec(function(err, user){
     user.sightings.push(new Sightings({common_name: req.body.common_name}));
@@ -108,7 +102,7 @@ router.post('/:id/sightings', function(req, res){
   });
 });
 
-// REMOVE AN SIGHTING
+// REMOVE A SIGHTING
 router.delete('/:userId/sightings/:id', function(req, res){
   User.findByIdAndUpdate(req.params.userId, {
     $pull:{
@@ -123,19 +117,19 @@ router.delete('/:userId/sightings/:id', function(req, res){
 
 // SIGHTING UPDATE ROUTE
 router.patch('/:userId/sightings/:id', function(req, res){
-  User.findByIdAndUpdate(req.params.id, req.body
-    // { first_name: req.body.first_name,
-    // last_name: req.body.last_name,
-    // email: req.body.email }
-
-
-    // can just pass in req.body since it contains the above data
-  , { new: true })
-  .exec(function(err, user){
-    if (err) { console.log(err); }
-    console.log(user);
-    res.redirect('/:userId/sightings')
-  });
+    User.findById(req.params.userId)
+      .exec(function(err, user){
+        if (err) { return console.log(err); }
+        console.log(user);
+        var sightingsArray = user.sightings;
+        var targetSighting = sightingsArray.id(req.params.id);
+        targetSighting.set(req.body);
+        user.save(function(err, user) {
+          if (err) { console.log(err); }
+          console.log(user);
+          res.redirect("/sessions/login");
+        });
+    });
 });
 
 
