@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="utf-8">
+    <title>auth</title>
+    <style media="screen">
+      nav li {
+        display: inline;
+      }
+      a {
+        text-decoration: none;
+      }
+      nav form {
+        display: inline;
+      }
+    </style>
   </head>
   <body>
+    <nav>
+      <ul>
+        <li><a href="/user/signup">signup</a> | </li>
+        <li><a href="/sessions/login">login</a> | </li>
+        <li>
+          <form method="post" action="/sessions?_method=DELETE">
+            <button>logout</button>
+          </form>
+        </li>
+      </ul>
+    </nav>
     {{{body}}}
   </body>
 </html>

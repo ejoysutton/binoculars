@@ -12,9 +12,16 @@ var SightingSchema = new Schema({
 });
 
 var UserSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    unique: true,
+    required: true
+  },
   password_digest: String,
-  email: String,
+  email: {
+    type: String,
+    match: /.+\@.+\..+/
+  },
   created_at: Date,
   sightings: [SightingSchema]
 });
