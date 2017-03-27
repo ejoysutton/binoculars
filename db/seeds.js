@@ -1,40 +1,40 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/express-mongoose-lesson-starter');
+mongoose.connect('mongodb://heroku_8jddbrfh:hugkjreq35221hlopm2vbktdk6@ds025239.mlab.com:25239/heroku_8jddbrfh');
 
-var User = require('../models/user');
-var Sighting = require('../models/sighting');
+var User = require('../controllers/users.js');
+var Sighting = require('../controllers/sighting.js');
 
 // Use native promises
 mongoose.Promise = global.Promise;
 
 // First we clear the database of existing users and items.
-Sighting.remove({}, function(err){
-  console.log(err);
-});
+// Sighting.remove({}, function(err){
+//   console.log(err);
+// });
 
-User.remove({}, function(err){
-  console.log(err);
-});
+// User.remove({}, function(err){
+//   console.log(err);
+// });
 
 // create new users
 var danny = new User({
   name: 'Danny',
   email: 'danny@gmail.com',
-  password: blugh,
+  password: 'blugh',
   items: [{common_name: "American Robin", location: "Orange Park", date: "03/10/2017", time: "12:25"}]
 });
 
 var maren = new User({
   name: 'Maren',
   email: 'maren@gmail.com',
-  password: blugh,
+  password: 'blugh',
   items: [{common_name: "American Robin", location: "Orange Park", date: "03/10/2017", time: "12:25"}]
 });
 
 var diesel = new User({
   name: 'diesel',
   email: 'diesel@gmail.com',
-  password: blugh,
+  password: 'blugh',
   items: [{common_name: "American Robin", location: "Orange Park", date: "03/10/2017", time: "12:25"}]
 });
 

@@ -2,19 +2,23 @@ pry = require('pryjs');
 var express = require('express');
 var mongoose = require('mongoose');
 var path = require('path');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var methodOverride = require('method-override');
 
-var db = require('./db');
+
+//Mongo/mongoose
+// var db = require('./db');
+var db = mongoose.connection;
 mongoose.connect('mongodb://heroku_8jddbrfh:hugkjreq35221hlopm2vbktdk6@ds025239.mlab.com:25239/heroku_8jddbrfh');
 
-var index = require('./controllers/index');
-var users = require('./controllers/users');
-// var authors = require('./routes/author');
+var usersController = require('./controllers/users');
+var sessionsController = require('./controllers/sessions');
+var indexController = require('./controllers/index');
+var sightingController = require('./controllers/sighting')
 
 var app = express();
 
@@ -26,10 +30,11 @@ app.set('view engine', 'hbs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
+
 
 app.use(session({
   secret: "herpaderpatology",
@@ -37,8 +42,11 @@ app.use(session({
   saveUninitialized: false
 }));
 
-app.use('/', index);
-app.use('/users', users);
+// app.use('/users', usersController);
+app.use('/sessions', sessionsController);
+app.use('/', indexController);
+app.use('/user', usersController);
+// app.use('/:userId/sightings', sightingController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

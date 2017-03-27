@@ -13,8 +13,8 @@ var SightingSchema = new Schema({
 
 var UserSchema = new Schema({
   name: String,
-  password: { type: String, required: true, unique: true },
-  email: { type: String, required: true, unique: true },
+  password: String,
+  email: String,
   created_at: Date,
   sightings: [SightingSchema]
 });
@@ -29,8 +29,9 @@ UserSchema.pre('save', function(next){
 });
 
 
-var UserModel = mongoose.model("User", UserSchema);
+
 var SightingModel = mongoose.model("Sighting", SightingSchema);
+var UserModel = mongoose.model("User", UserSchema);
 
 module.exports = {
   User: UserModel,

@@ -1,17 +1,15 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router({ mergeParams: true });
 
-var Sighting = require('../models/sighting');
+var Sighting = require('../controllers/sighting');
 
 // index authors
 router.get('/', function(req, res) {
-    // res.send('authors will be here');
     Sighting.find({})
         .exec(function(err, sightings) {
             if(err) console.log(err);
 
             console.log(sightings);
-            // res.send(authors);
             res.render('sightings/index', {
             	  sightings: sightings
             });
