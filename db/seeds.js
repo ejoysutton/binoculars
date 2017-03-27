@@ -8,34 +8,34 @@ var Sighting = require('../controllers/sightingController');
 mongoose.Promise = global.Promise;
 
 // First we clear the database of existing users and items.
-Sighting.remove({}, function(err){
-  console.log(err);
-});
+// Sighting.remove({}, function(err){
+//   console.log(err);
+// });
 
-User.remove({}, function(err){
-  console.log(err);
-});
+// User.remove({}, function(err){
+//   console.log(err);
+// });
 
-create new users
-var danny = new User({
+// create new users
+var user = new User({
   name: 'Danny',
   email: 'danny@gmail.com',
   password_digest: 'blugh',
-  items: []
+  sightings: []
 });
 
 var maren = new User({
   name: 'Maren',
   email: 'maren@gmail.com',
   password_digest: 'blugh',
-  items: [{common_name: "American Robin", location: "Orange Park", date: "03/10/2017", time: "12:25"}]
+  sightings: [{common_name: "American Robin", location: "Orange Park", date: "03/10/2017", time: "12:25"}]
 });
 
 var diesel = new User({
   name: 'diesel',
   email: 'diesel@gmail.com',
   password_digest: 'blugh',
-  items: [{common_name: "American Robin", location: "Orange Park", date: "03/10/2017", time: "12:25"}]
+  sightings: [{common_name: "American Robin", location: "Orange Park", date: "03/10/2017", time: "12:25"}]
 });
 
 // save the users
