@@ -95,10 +95,10 @@ router.get('/', function(req, res) {
 router.post('/:userId/sightings', function(req, res){
   User.findById(req.params.userId)
   .exec(function(err, user){
-    user.sightings.push(new Sightings({common_name: req.body.common_name}));
+    user.sightings.push(new Sightings(req.body));
     user.save(function(err){
       if (err) console.log(err);
-      res.send(user);
+      res.redirect('/user');
     });
   });
 });
