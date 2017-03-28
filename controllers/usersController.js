@@ -12,6 +12,12 @@ var User = require('../models/usersModel');
 var Sightings = require('../models/sightingsModel')
 var authHelpers = require('../helpers/auth.js')
 
+///REnder badlogin
+router.get('/badlogin', function(req, res){
+  console.log('bad login here!');
+  res.render('badlogin.hbs');
+});
+
 ///Render Signup
 router.get('/signup', function(req, res){
   res.render('user/signup.hbs');
@@ -66,10 +72,7 @@ router.patch('/:id', function(req, res){
 
 
 ///Render Badlogin
-router.get('/badlogin', function(req, res){
-  console.log('bad login here!');
-  res.send('Bad Login');
-});
+
 
 
 ///Render User
