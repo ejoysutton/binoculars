@@ -4,7 +4,7 @@
     <li>Location: {{targetSighting.location}}</li>
     <li>Seen on: {{targetSighting.date}} at {{targetSighting.time}}</li>
 </ul>
-<form action="/{{../user.id}}/sightings/{{targetSighting.id}}" method="put">
+<form action="/{{targetUser.id}}/sightings/{{targetSighting.id}}?_method=PUT" method="POST">
   <div>
     <input type="text" name="common_name" placeholder="Common Name">
   </div>

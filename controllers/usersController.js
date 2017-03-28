@@ -137,10 +137,11 @@ router.get('/:userId/sightings/:id', function(req, res) {
   User.findById(req.params.userId)
   .exec(function(err, user) {
     if (err) { return console.log(err); }
+    var targetUser = user;
     var sightingsArray = user.sightings;
     var targetSighting = sightingsArray.id(req.params.id);
     console.log(user);
-    res.render('sighting/show.hbs', { targetSighting: targetSighting } );
+    res.render('sighting/show.hbs', { targetUser: targetUser, targetSighting: targetSighting } );
   });
 });
 
