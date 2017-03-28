@@ -4,21 +4,21 @@
     <li>Location: {{targetSighting.location}}</li>
     <li>Seen on: {{targetSighting.date}} at {{targetSighting.time}}</li>
 </ul>
-<form action="/{{targetUser.id}}/sightings/{{targetSighting.id}}?_method=PUT" method="POST">
+<form action="/user/{{targetUser.id}}/sightings/{{targetSighting.id}}?_method=PATCH" method="POST" formenctype="application/x-www-form-urlencoded">
   <div>
-    <input type="text" name="common_name" placeholder="Common Name">
+    <input type="text" name="common_name" placeholder="Common Name" value="{{targetSighting.common_name}}">
   </div>
 
   <div>
-    <input type="text" name="location" placeholder="Location">
+    <input type="text" name="location" placeholder="Location" value="{{targetSighting.location}}">
   </div>
 
   <div>
-    <input type="date" name="date" placeholder="">
+    <input type="date" name="date" placeholder="" value="{{targetSighting.date}}">
   </div>
 
     <div>
-    <input type="time" name="time" placeholder="">
+    <input type="time" name="time" placeholder="" value="{{targetSighting.time}}">
   </div>
 
   <input type="submit" value="Submit">
