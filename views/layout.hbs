@@ -20,8 +20,23 @@
   <body>
     <nav>
       <ul>
-        <li><a href="/user/signup">signup</a> | </li>
-        <li><a href="/sessions/login">login</a> | </li>
+        <li><a href="/">Home</a> | </li>
+        <li><a href="/user">About</a> | </li>
+        <li><a href="/user/signup">Sign Up</a> | </li>
+        <form action="/sessions/login" method="post">
+          
+            <label for="email"></label>
+            <input type="text" name="email" placeholder="email">
+          
+
+          
+            <label for="password"></label>
+            <input type="text" name="password" placeholder="password">
+          
+
+          <input type="submit" value="Submit">
+        </form>
+
         <li>
           <form method="post" action="/sessions?_method=DELETE">
             <button>logout</button>
