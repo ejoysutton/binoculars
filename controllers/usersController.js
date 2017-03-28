@@ -92,7 +92,7 @@ router.get('/', function(req, res) {
 ///Sightings
 
 // ADD A NEW SIGHTING
-router.post('/:userId/sightings', function(req, res){
+router.post('/:userId/sightings', authHelpers.authorize, function(req, res){
   User.findById(req.params.userId)
   .exec(function(err, user){
     user.sightings.push(new Sightings(req.body));
@@ -104,7 +104,7 @@ router.post('/:userId/sightings', function(req, res){
 });
 
 // REMOVE A SIGHTING
-router.delete('/:userId/sightings/:id', function(req, res){
+router.delete('/:userId/sightings/:id', authHelpers.authorize, function(req, res){
   User.findByIdAndUpdate(req.params.userId, {
     $pull:{
       sightings: {_id: req.params.id}
@@ -117,7 +117,7 @@ router.delete('/:userId/sightings/:id', function(req, res){
 });
 
 // SIGHTING UPDATE ROUTE
-router.patch('/:userId/sightings/:id', function(req, res){
+router.patch('/:userId/sightings/:id', authHelpers.authorize, function(req, res){
     User.findById(req.params.userId)
       .exec(function(err, user){
         if (err) { return console.log(err); }
@@ -145,7 +145,7 @@ router.get('/:userId/sightings/:id', function(req, res) {
   });
 });
 
-router.get('/:userId/sightings/:id/edit', function(req, res) {
+router.get('/:userId/sightings/:id/edit', authHelpers.authorize, function(req, res) {
   User.findById(req.params.userId)
   .exec(function(err, user) {
     if (err) { return console.log(err); }

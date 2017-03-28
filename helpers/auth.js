@@ -30,13 +30,13 @@ function loginUser(req, res, next) {
 };
 
 function authorize(req, res, next) {
-  var currentUser = req.session.currentUser
-
+  var currentUser = req.session.currentUser;
+  console.log(currentUser);
   if (!currentUser || currentUser._id !== req.params.id ) {
     res.send({status: 401})
   } else {
-    next()
-  }
+    next();
+  };
 };
 
 module.exports = {
