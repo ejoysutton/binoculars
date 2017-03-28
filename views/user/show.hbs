@@ -8,9 +8,9 @@
   </form>
 </div>
 <ul>
-<li>name: {{user.name}}</li>
-  <li>email: {{user.email}}</li>
-  <li>created_at: {{user.created_at}}</li>
+<li>Username: {{user.name}}</li>
+  <li>E-Mail: {{user.email}}</li>
+  <li>Watcher since: {{user.created_at}}</li>
     <li>Number of Sightings: {{user.sightings.length}}</li>
 </ul>
 <form action="/user/{{user.id}}/sightings" method="post">
@@ -21,3 +21,9 @@
 
   <input type="submit" value="Submit">
 </form>
+
+{{#each user.sightings}}
+	<a class="btn btn-default" href="/user/{{this.id}}/sightings/{{id}}" role="button">{{common_name}} seen on {{date}}</a>
+{{/each}}
+
+blah

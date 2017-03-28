@@ -22,6 +22,8 @@ router.get('/badlogin', function(req, res){
 router.get('/signup', function(req, res){
   res.render('user/signup.hbs');
 });
+
+
 router.get('/:id', function(req, res) {
   User.findById(req.params.id)
   .exec(function(err, user) {
@@ -69,10 +71,6 @@ router.patch('/:id', function(req, res){
     res.redirect('/user')
   });
 });
-
-
-///Render Badlogin
-
 
 
 ///Render User
@@ -135,6 +133,14 @@ router.patch('/:userId/sightings/:id', function(req, res){
     });
 });
 
-
+router.get('/:userId/sightings/:id', function(req, res) {
+  User.findById(req.params.userId)
+  .exec(function(err, user) {
+    var sightingsArray = user.sightings;
+    var targetSighting = sightingsArray.id(req.params.id);
+    console.log(user);
+    res.render('sighting/show.hbs', { targetSighting: targetSighting } );
+  });
+});
 
 module.exports = router;
