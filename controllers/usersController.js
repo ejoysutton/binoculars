@@ -92,7 +92,7 @@ router.get('/', function(req, res) {
 
 // ADD A NEW SIGHTING
 router.post('/:userId/sightings', function(req, res){
-  User.findById(req.params.id)
+  User.findById(req.params.userId)
   .exec(function(err, user){
     user.sightings.push(new Sightings({common_name: req.body.common_name}));
     user.save(function(err){
