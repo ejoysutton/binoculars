@@ -15,7 +15,7 @@ var Item = require("../models/sightingsModel");
 //Index '/'
 router.get('/', function(req, res){
   console.log('homepage here!');
-  res.send('homepage')
+  res.render('index.hbs');
 });
 
 
