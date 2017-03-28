@@ -41,7 +41,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// app.use('/users', usersController);
 app.use('/sessions', sessionsController);
 app.use('/', indexController);
 // app.use('/user/sightings', sightingController);

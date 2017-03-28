@@ -1,6 +1,6 @@
 html {
-  	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  	background-image: url("/images/ray-hennessy-139968.jpg"); 
+  	font: 14px Helvetica, Arial, sans-serif;
+  	background-image: url("/images/ray-hennessy-118042.jpg"); 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -15,7 +15,11 @@ a {
 }
 
 .splash {
-	background-color: ;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
 }
 
 .topNav {
@@ -49,8 +53,9 @@ a {
 	background-color: white;
 	position : absolute;
     bottom : 0;
-    height : 40px;
+    height : 50px;
     margin-top : 40px;
+    padding: 10px
 }
 
 nav li {
