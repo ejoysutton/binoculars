@@ -23,7 +23,7 @@
 </form>
 
 {{#each user.sightings}}
-	<a class="btn btn-default" href="/user/{{this.id}}/sightings/{{id}}" role="button">{{common_name}} seen on {{date}}</a>
+	<a class="btn btn-default" href="/user/{{../user.id}}/sightings/{{id}}" role="button">{{common_name}} seen on {{date}}</a>
 {{/each}}
 
 blah

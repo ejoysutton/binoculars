@@ -117,7 +117,7 @@ router.delete('/:userId/sightings/:id', function(req, res){
 });
 
 // SIGHTING UPDATE ROUTE
-router.patch('/:userId/sightings/:id', function(req, res){
+router.put('/:userId/sightings/:id', function(req, res){
     User.findById(req.params.userId)
       .exec(function(err, user){
         if (err) { return console.log(err); }
@@ -128,7 +128,7 @@ router.patch('/:userId/sightings/:id', function(req, res){
         user.save(function(err, user) {
           if (err) { console.log(err); }
           console.log(user);
-          res.redirect("/sessions/login");
+          res.redirect("/user");
         });
     });
 });
@@ -136,11 +136,25 @@ router.patch('/:userId/sightings/:id', function(req, res){
 router.get('/:userId/sightings/:id', function(req, res) {
   User.findById(req.params.userId)
   .exec(function(err, user) {
+    if (err) { return console.log(err); }
     var sightingsArray = user.sightings;
     var targetSighting = sightingsArray.id(req.params.id);
     console.log(user);
     res.render('sighting/show.hbs', { targetSighting: targetSighting } );
   });
 });
+
+router.get('/:userId/sightings/:id/edit', function(req, res) {
+  User.findById(req.params.userId)
+  .exec(function(err, user) {
+    if (err) { return console.log(err); }
+    var targetUser = user;
+    var sightingsArray = user.sightings;
+    var targetSighting = sightingsArray.id(req.params.id);
+    console.log(user);
+    res.render('sighting/edit.hbs', { targetUser: targetUser, targetSighting: targetSighting } );
+  });
+});
+
 
 module.exports = router;

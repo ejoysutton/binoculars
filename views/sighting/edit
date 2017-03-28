@@ -1,10 +1,4 @@
-
-<ul>
-  <li>Common Name: {{targetSighting.common_name}}</li>
-    <li>Location: {{targetSighting.location}}</li>
-    <li>Seen on: {{targetSighting.date}} at {{targetSighting.time}}</li>
-</ul>
-<form action="/{{../user.id}}/sightings/{{targetSighting.id}}" method="put">
+<form action="/user" method="post">
   <div>
     <input type="text" name="common_name" placeholder="Common Name">
   </div>
