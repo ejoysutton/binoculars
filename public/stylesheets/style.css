@@ -37,6 +37,31 @@ a {
 /*	justify-content: center;*/
 }
 
+.sightingCard {
+	width: justify;
+	background-color: rgba(100, 100, 100, 0.25);
+	padding: 20px;
+	border-radius: 15px;
+}
+
+.sightingField {
+	background-color: rgba(100, 100, 100, 0.25);
+	padding: 10px;
+	border-radius: 15px;	
+}
+
+.sightingCardForm {
+	color: black;
+	margin: 0 auto;
+}
+
+.cardContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 .sightingViewButton {
 	margin:;
 }

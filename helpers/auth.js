@@ -39,8 +39,19 @@ function authorize(req, res, next) {
   };
 };
 
+function authorizeNewSighting(req, res, next) {
+  var currentUser = req.session.currentUser;
+  console.log(currentUser);
+  if (!currentUser || currentUser._id !== req.params.id !== currentUserLocation) {
+    res.send({status: 401})
+  } else {
+    next();
+  };
+};
+
 module.exports = {
   createSecure: createSecure,
   loginUser: loginUser,
-  authorize: authorize
+  authorize: authorize,
+  authorizeNewSighting: authorizeNewSighting
 };

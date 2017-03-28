@@ -95,6 +95,7 @@ router.get('/', function(req, res) {
 router.post('/:userId/sightings', authHelpers.authorize, function(req, res){
   User.findById(req.params.userId)
   .exec(function(err, user){
+    var currentUserLocation = req.params.userId;
     user.sightings.push(new Sightings(req.body));
     user.save(function(err){
       if (err) console.log(err);
@@ -117,11 +118,12 @@ router.delete('/:userId/sightings/:id', authHelpers.authorize, function(req, res
 });
 
 // SIGHTING UPDATE ROUTE
-router.patch('/:userId/sightings/:id', authHelpers.authorize, function(req, res){
+router.patch('/:userId/sightings/:id', authHelpers.authorizeNewSighting, function(req, res){
     User.findById(req.params.userId)
       .exec(function(err, user){
         if (err) { return console.log(err); }
         console.log(user);
+        var currentUserLocation = req.params.userId;
         var sightingsArray = user.sightings;
         var targetSighting = sightingsArray.id(req.params.id);
         targetSighting.set(req.body);
@@ -137,6 +139,7 @@ router.get('/:userId/sightings/:id', function(req, res) {
   User.findById(req.params.userId)
   .exec(function(err, user) {
     if (err) { return console.log(err); }
+    var currentUserLocation = req.params.userId;
     var targetUser = user;
     var sightingsArray = user.sightings;
     var targetSighting = sightingsArray.id(req.params.id);
