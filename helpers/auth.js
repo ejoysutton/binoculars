@@ -30,9 +30,11 @@ function loginUser(req, res, next) {
 };
 
 function authorize(req, res, next) {
+  console.log(req.session)
   var currentUser = req.session.currentUser;
-  console.log(currentUser);
-  if (!currentUser || currentUser._id !== req.params.id ) {
+  console.log("checked authorize");
+  const alteringOwnPage = currentUser && currentUser._id == req.params.userId;
+  if (!currentUser || !alteringOwnPage ) {
     res.send({status: 401})
   } else {
     next();

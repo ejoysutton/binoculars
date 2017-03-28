@@ -100,7 +100,7 @@ router.post('/:userId/sightings', authHelpers.authorize, function(req, res){
         console.log("sent to authorize");
     user.save(function(err){
       if (err) console.log(err);
-      res.redirect('/user/:id');
+      res.redirect(`/user/${req.params.userId}`)
     });
   });
 });
@@ -114,7 +114,7 @@ router.delete('/:userId/sightings/:id', authHelpers.authorize, function(req, res
   })
   .exec(function(err, item){
     if (err) console.log(err);
-    res.redirect('/user/:id')
+    res.redirect(`/user/${req.params.userId}`)
   });
 });
 
