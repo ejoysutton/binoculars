@@ -2,27 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>auth</title>
-    <style media="screen">
-      nav li {
-        display: inline;
-      }
-      a {
-        text-decoration: none;
-      }
-      nav form {
-        display: inline;
-      }
-    </style>
-
+    <title>Binoculars</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
-    <nav>
-      <ul>
+    <nav class="topNav">
+      <div class="siteNav">
         <li><a href="/">Home</a> | </li>
         <li><a href="/user">About</a> | </li>
-        <li><a href="/user/signup">Sign Up</a> | </li>
+        <li><a href="/user/signup">Sign Up</a></li>
+        </div>
+        <div class="loginNav">
         <form action="/sessions/login" method="post">
             <label for="email"></label>
             <input type="text" name="email" placeholder="email">
@@ -36,10 +27,10 @@
             <button>logout</button>
           </form>
         </li>
-      </ul>
+        </div>
     </nav>
     {{{body}}}
-    
+
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="

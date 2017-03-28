@@ -1,8 +1,38 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.topNav {
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-content: flex-start;
+	background-color: white;
+}
+
+.loginNav {
+	align-content: : flex-end;
+}
+
+.siteNav {
+	align-content: flex-start;
+	font-size: 1.5em;
+}
+
+nav li {
+	display: inline;
+}
+
+a {
+	text-decoration: none;
+}
+nav form {
+	display: inline;
 }
