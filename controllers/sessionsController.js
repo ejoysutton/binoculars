@@ -8,11 +8,13 @@ router.get('/login', function(req, res) {
 })
 
 router.post('/login', authHelpers.loginUser, function(req, res){
+	console.log('user logged in')
   res.redirect('/user')
 });
 
 router.delete('/', function(req, res){
   req.session.destroy(function(){
+ 	console.log('user logged out')
     res.redirect('/user');
   });
 })
