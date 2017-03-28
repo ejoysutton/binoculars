@@ -98,7 +98,7 @@ router.post('/:userId/sightings', function(req, res){
     user.sightings.push(new Sightings(req.body));
     user.save(function(err){
       if (err) console.log(err);
-      res.redirect('/user');
+      res.redirect('/user/:id');
     });
   });
 });
