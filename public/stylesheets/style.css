@@ -1,6 +1,6 @@
 html {
   	font: 14px Helvetica, Arial, sans-serif;
-  	background-image: url("/images/ray-hennessy-118042.jpg"); 
+  	background-image: url("/images/ray-hennessy-118042.jpg");
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -14,11 +14,54 @@ a {
   color: #00B7FF;
 }
 
+#sightingModal {
+	color: black;
+	margin: 0 auto;
+
+
+}
+
+.individualSightingButton {
+	margin: 10px;
+}
+
+.userSightings {
+	max-width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-color: rgba(100, 100, 100, 0.25);
+	padding: 20px;
+	border-radius: 15px;
+/*	justify-content: center;*/
+}
+
+.sightingViewButton {
+	margin:;
+}
+
+.alignRight {
+
+}
+
+.inputField {
+	padding: 10px;
+	align-self: center;
+}
+.formBlock {
+	width: justify;
+	background-color: rgba(100, 100, 100, 0.25);
+	padding: 20px;
+	border-radius: 15px;
+}
+
 .splash {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
 
 }
 
@@ -44,7 +87,6 @@ a {
 
 .bottomNav {
 	width: 100%;
-	padding: 0px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -54,10 +96,12 @@ a {
 	position : absolute;
     bottom : 0;
     height : 50px;
-    margin-top : 40px;
     padding: 10px
 }
 
+.viewsBlock {
+	color: #fff;
+}
 nav li {
 	display: inline;
 }

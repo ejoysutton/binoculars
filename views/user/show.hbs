@@ -1,41 +1,114 @@
-<h1>User Profile</h1>
+<h1>{{user.name}}'s Field Book</h1>
 <!-- <div>
   <a href="/user/{{user.id}}/edit">Edit User</a>
 </div> -->
 <div>
+  <ul>
+    <div>E-Mail: {{user.email}}</div>
+    <div>Watcher since: {{user.created_at}}</div>
+    <div>Number of Sightings: {{user.sightings.length}}</div>
+  </ul>
+</div>
+
+<!-- <div>
   <form action="/user/{{user.id}}?_method=DELETE" method="POST">
     <input type="submit" value="Delete User"/>
   </form>
+</div> -->
+
+<div class="addNewSightingBox">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sightingModal">
+  Add a New Sighting
+</button>
 </div>
-<ul>
-<li>Username: {{user.name}}</li>
-  <li>E-Mail: {{user.email}}</li>
-  <li>Watcher since: {{user.created_at}}</li>
-    <li>Number of Sightings: {{user.sightings.length}}</li>
-</ul>
-<form action="/user/{{user.id}}/sightings" method="post">
-  <div>
-    <input type="text" name="common_name" placeholder="Common Name">
-  </div>
 
-  <div>
-    <input type="text" name="location" placeholder="Location">
-  </div>
-
-  <div>
-    <input type="date" name="date" placeholder="">
-  </div>
-
-    <div>
-    <input type="time" name="time" placeholder="">
-  </div>    
-  </div>
-
-  <input type="submit" value="Submit">
-</form>
-
+<div class="userSightings">
 {{#each user.sightings}}
-	<a class="btn btn-default" href="/user/{{../user.id}}/sightings/{{id}}" role="button">{{common_name}} seen on {{date}}</a>
+  <div class="individualSightingButton">
+  	<a class="btn btn-default sightingViewButton" href="/user/{{../user.id}}/sightings/{{id}}" role="button">{{common_name}} seen on {{date}}</a>
+  </div>
 {{/each}}
+</div>
 
-blah
+
+<div class="modal fade" id="sightingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a New Sighting</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="text-center">
+      <p>Fill in as much information as you'd like, but having at least a common name and date seen will help you keep track of your findings.</p>
+      <p>Not sure what you saw? Just call it "Unknown" for now!</p>
+      <div class="modal-body">
+        <form action="/user/{{user.id}}/sightings" method="post">
+          <div>
+            <input type="text" name="common_name" placeholder="Common Name">
+          </div>
+
+          <div>
+            <input type="text" name="location" placeholder="Location">
+          </div>
+
+          <div>
+            <input type="date" name="date" placeholder="">
+          </div>
+
+          <div>
+            <input type="time" name="time" placeholder="">
+          </div>    
+          
+
+          <!-- <input type="submit" value="Submit"> -->
+        
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>      
+
+
+
+<!-- 
+        <form action="/user/{{user.id}}/sightings" method="post">
+          <div>
+            <input type="text" name="common_name" placeholder="Common Name">
+          </div>
+
+          <div>
+            <input type="text" name="location" placeholder="Location">
+          </div>
+
+          <div>
+            <input type="date" name="date" placeholder="">
+          </div>
+
+            <div>
+            <input type="time" name="time" placeholder="">
+          </div>    
+          </div>
+
+          <input type="submit" value="Submit">
+        </form> -->
+
+
+<!-- 
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>  -->
