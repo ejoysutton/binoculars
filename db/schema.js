@@ -4,11 +4,19 @@ var Schema = mongoose.Schema;
 // Use native promises
 mongoose.Promise = global.Promise;
 
+var CommentSchema = new Schema({
+  comment: String,
+  username: String,
+  points: Number
+});
+
+
 var SightingSchema = new Schema({
   common_name: String,
   location: String,
   date: String,
-  time: String
+  time: String,
+  comments: [CommentSchema]
 });
 
 var UserSchema = new Schema({
@@ -36,11 +44,12 @@ UserSchema.pre('save', function(next){
 });
 
 
-
+var CommentModel = mongoose.model("Comment", CommentSchema);
 var SightingModel = mongoose.model("Sighting", SightingSchema);
 var UserModel = mongoose.model("User", UserSchema);
 
 module.exports = {
   User: UserModel,
-  Sighting: SightingModel
+  Sighting: SightingModel,
+  Comment: CommentModel
 };
