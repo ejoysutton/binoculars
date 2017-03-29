@@ -18,6 +18,12 @@ router.get('/badlogin', function(req, res){
   res.render('badlogin.hbs');
 });
 
+///REnder unautorized
+router.get('/unauthorized', function(req, res){
+  console.log('bad post here!');
+  res.render('user/unauthorized.hbs');
+});
+
 ///Render Signup
 router.get('/signup', function(req, res){
   res.render('user/signup.hbs');

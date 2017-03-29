@@ -1,6 +1,10 @@
 <div class="splash">
-	<div class="formBlock">
-		<p>There was a problem with your login attempt. Username/password did not match.</p>
+	<div class="welcomeMessage">
+		<p>You aren't authorized to make changes to this Field Book!</p>
+		
+		<img class="splashImage" src="/images/accessDenied.gif">
+		<p>Either you haven't logged in or are trying to edit someone else's Field Book.</p>
+
 		<form action="/sessions/login" method="post">
 		    <input type="text" name="email" placeholder="email">
 		    <input type="text" name="password" placeholder="password">

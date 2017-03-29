@@ -37,7 +37,7 @@ function authorize(req, res, next) {
   console.log("checked authorize");
   const alteringOwnPage = currentUser && currentUser._id == req.params.userId;
   if (!currentUser || !alteringOwnPage ) {
-    res.redirect('/user/badlogin');
+    res.redirect('/user/unauthorized');
     // res.send({status: 401})
   } else {
     next();
