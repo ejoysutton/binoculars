@@ -3,7 +3,7 @@
 
 		<div class="individualUserContainer">
 			{{#each users}}
-			  	<a class="btn btn-success individualUserButton" href="/user/{{this.id}}" role="button"><h3>{{name}}</h3> <br> <h2>
+			  	<a class="btn btn-success individualUserButton" href="/user/{{this.id}}" role="button"><h3>{{name}}</h3> <br> <h2>{{this.sightings.length}} sightings</h2></a>
 			{{/each}}
 		 </div>
 
