@@ -11,7 +11,7 @@
     <nav class="topNav">
       <div class="siteNav">
         <li><a href="/">Home</a> | </li>
-        <li><a href="/user">About</a> | </li>
+        <li><a href="/user">Watchers</a> | </li>
         <li><a href="/user/signup">Sign Up</a></li>
         </div>
         <div class="loginNav">
@@ -19,14 +19,17 @@
             <label for="email"></label>
             <input type="text" name="email" placeholder="email">
             <label for="password"></label>
-            <input type="text" name="password" placeholder="password">
+            <input type="password" name="password" placeholder="password">
           <input type="submit" value="Submit">
         </form>
 
         <li>
-          <form method="post" action="/sessions?_method=DELETE">
+              <button data-toggle="modal" data-target="#logoutModal">
+              logout
+              </button>
+<!--           <form method="post" action="/sessions?_method=DELETE">
             <button>logout</button>
-          </form>
+          </form> -->
         </li>
         </div>
     </nav>
@@ -34,6 +37,31 @@
     <img src="">
     {{{body}}}
     </div>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Logout?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="text-center">
+        <h3>Really log out?</h3>
+        <div class="modal-body">
+          <form method="post" action="/sessions?_method=DELETE">
+            <button>logout</button>
+          </form>
+            
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>        
+      </div>
+    </div>
+  </div>
+</div>
     <footer class="bottomNav">
       <div class="leftBottomNav">
       </div>

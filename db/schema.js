@@ -12,9 +12,15 @@ var CommentSchema = new Schema({
 
 
 var SightingSchema = new Schema({
-  common_name: String,
+  common_name: {
+    type: String,
+    required: true
+  },
   location: String,
-  date: String,
+  date: {
+    type: String,
+    required: true
+  },
   time: String,
   comments: [CommentSchema]
 });

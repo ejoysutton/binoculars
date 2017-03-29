@@ -48,17 +48,21 @@ router.delete('/:id', function(req, res){
 ///Create User
 router.post('/', authHelpers.createSecure, function(req, res){
 		console.log(req.params);
-	var user =  new User({
-		email: req.body.email,
-		name: req.body.name,
-		password_digest: res.hashedPassword
-	});
+    if (req.body.password === req.body.passwordConfirm) {
+    	var user =  new User({
+    		email: req.body.email,
+    		name: req.body.name,
+    		password_digest: res.hashedPassword
+    	});
 
-	user.save(function(err, user) {
-		if (err) { console.log(err); }
-		console.log(user);
-		res.redirect("/sessions/login");
-	});
+    	user.save(function(err, user) {
+    		if (err) { console.log(err); }
+    		console.log(user);
+    		res.redirect("/sessions/login");
+    	});
+    } else {
+      res.redirect('/user/badlogin');
+    }
 });
 
 // USER UPDATE ROUTE
