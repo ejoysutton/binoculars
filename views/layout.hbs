@@ -10,6 +10,7 @@
   <body>
     <nav class="topNav">
       <div class="siteNav">
+      <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
         <li><a href="/">Home</a> | </li>
         <li><a href="/user">Watchers</a> | </li>
         <li><a href="/user/signup">Sign Up</a></li>
@@ -22,16 +23,12 @@
             <input type="password" name="password" placeholder="password">
           <input type="submit" value="Submit">
         </form>
-
         <li>
-              <button data-toggle="modal" data-target="#logoutModal">
-              logout
-              </button>
-<!--           <form method="post" action="/sessions?_method=DELETE">
-            <button>logout</button>
-          </form> -->
+          <button data-toggle="modal" data-target="#logoutModal">
+          logout
+          </button>
         </li>
-        </div>
+      </div>
     </nav>
     <div class="viewsBlock">
     <img src="">
@@ -64,9 +61,10 @@
 </div>
     <footer class="bottomNav">
       <div class="leftBottomNav">
+      <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span><a href="http://joysuttonportfolio.bitballoon.com/">Joy Sutton</a>
       </div>
       <div class="RightBottomNav">
-          <button type="button" class="btn btn-success">Back to Top</button>
+          <input type="button" class="btn btn-success" value="Back to Top" onclick="location.href = '#topNav';"></button>
 
       </div>
     </footer>
