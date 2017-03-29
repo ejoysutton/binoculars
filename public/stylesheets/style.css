@@ -146,6 +146,8 @@ a {
 	padding: 20px;
 	border-radius: 15px;
 	color: black;
+	margin: 20px;
+	color: black;
 }
 
 .splash {
@@ -189,6 +191,10 @@ a {
     bottom : 0;
     height : 50px;
     padding: 10px
+}
+
+.errorMessage {
+	color: black;
 }
 
 .viewsBlock {
