@@ -14,6 +14,27 @@ a {
   color: #00B7FF;
 }
 
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.individualUserContainer {
+	max-width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-color: rgba(100, 100, 100, 0.25);
+	padding: 20px;
+	border-radius: 15px;
+}
+
+.individualUserButton {
+	margin: 10px;
+}
+
 #sightingModal {
 	color: black;
 	margin: 0 auto;
@@ -66,8 +87,8 @@ a {
 	margin:;
 }
 
-.alignRight {
-
+.addNewSightingBox {
+	margin: 10px;
 }
 
 .inputField {

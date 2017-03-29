@@ -22,7 +22,6 @@ function loginUser(req, res, next) {
 
     } else if (bcrypt.compareSync(password, foundUser.password_digest)) {
       req.session.currentUser = foundUser;
-            // res.redirect('/user/badlogin');
     }
     next()
   })

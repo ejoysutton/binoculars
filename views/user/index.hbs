@@ -1,7 +1,13 @@
-{{#each users}}
-  <ul>
-  	<li><a href="/user/{{this.id}}">{{name}}</a></li>
-    <li>{{email}}</li>
-    <li>{{password_digest}}</li>
-  </ul>
-{{/each}}
+<div class="container-fluid">
+	<h1 class="text-center">Watchers on Binoculars</h1>
+
+		<div class="individualUserContainer">
+			{{#each users}}
+			  	<a class="btn btn-success individualUserButton" href="/user/{{this.id}}" role="button"><h3>{{name}}</h3> <br> <h2>{{this.sightings.length}} sightings</h2></a>
+			<!--   	<li><a href="/user/{{this.id}}">{{name}}</a></li>
+			    <li>{{email}}</li>
+			    <li>{{password_digest}}</li> -->
+			{{/each}}
+		 </div>
+
+</div>
