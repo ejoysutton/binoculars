@@ -17,14 +17,17 @@ function loginUser(req, res, next) {
   User.findOne({ email: email })
   .then(function(foundUser){
     if (foundUser == null) {
-      res.json({status: 401, data: "unauthorized"})
+      res.redirect('/user/badlogin');
+      // res.json({status: 401, data: "unauthorized"})
 
     } else if (bcrypt.compareSync(password, foundUser.password_digest)) {
       req.session.currentUser = foundUser;
+            // res.redirect('/user/badlogin');
     }
     next()
   })
   .catch(function(err){
+    res.redirect('/user/badlogin');
     res.json({status: 500, data: err})
   });
 };
@@ -35,7 +38,8 @@ function authorize(req, res, next) {
   console.log("checked authorize");
   const alteringOwnPage = currentUser && currentUser._id == req.params.userId;
   if (!currentUser || !alteringOwnPage ) {
-    res.send({status: 401})
+    res.redirect('/user/badlogin');
+    // res.send({status: 401})
   } else {
     next();
   };

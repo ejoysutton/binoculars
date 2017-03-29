@@ -1,8 +1,13 @@
-<form action="/sessions/login" method="post">
-    <input type="text" name="email" placeholder="email">
-    <input type="text" name="password" placeholder="password">
-    <input type="submit" value="Submit">
-</form>
-<hr>
-<p>Not a user yet?</p>
-<a class="btn btn-default" href="/user/signup" role="button">Sign Up</a>
+<div class="splash">
+	<div class="formBlock">
+		<p>THere was a problem with your login attempt. Username/password did not match.</p>
+		<form action="/sessions/login" method="post">
+		    <input type="text" name="email" placeholder="email">
+		    <input type="text" name="password" placeholder="password">
+		    <button type="submit" class="btn btn-default" value="Submit">Sign In</button>
+		</form>
+		<hr>
+		<p>Not a user yet?</p>
+		<a class="btn btn-default" href="/user/signup" role="button">Sign Up</a>
+	</div>
+</div>
