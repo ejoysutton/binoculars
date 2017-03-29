@@ -5,6 +5,7 @@ html {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	min-height: 100%;
 }
 body {
 	background-color: transparent;
@@ -213,4 +214,14 @@ a {
 }
 nav form {
 	display: inline;
+}
+
+body {
+	min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+align-content: flex-end;
 }
