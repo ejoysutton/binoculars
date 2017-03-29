@@ -19,5 +19,5 @@ https://aqueous-bayou-41781.herokuapp.com/
 https://trello.com/b/SBf94YQH/life-list
 
 ###Wireframes / ERD
-
+[Balsamiq Wireframe](../designAssets/binoculars.pdf)
 [Imgur](http://i.imgur.com/Zr8mCmP.png)
