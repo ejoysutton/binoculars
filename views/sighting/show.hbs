@@ -28,14 +28,14 @@
             <input type="time" name="time" placeholder="" value="{{targetSighting.time}}">
           </div>
 
-          <button type="submit" class="btn btn-primary" value="Submit">Update Sighting</button>
+          <button type="submit" class="btn btn-success" value="Submit">Update Sighting</button>
         </form>
       </div>
 
     <div>
 <!--       <button type="submit" class="btn btn-primary"value="Submit">Save changes</button> -->
       <form action="/user/{{targetUser.id}}/sightings/{{targetSighting.id}}?_method=DELETE" method="POST">
-      <button type="submit" value="Delete Sighting" class="btn btn-danger">Delete Sighting</button>
+      <button type="submit" value="Delete Sighting" class="btn btn-warning">Delete Sighting</button>
 <!--       <input type="submit" value="Delete Sighting"/> -->
       </form>
     </div>
