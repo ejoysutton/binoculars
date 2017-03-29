@@ -21,3 +21,8 @@ https://trello.com/b/SBf94YQH/life-list
 ### Wireframes / ERD
 [Balsamiq Wireframe](/designAssets/binoculars.pdf)  
 [ERD](http://i.imgur.com/Zr8mCmP.png)
+
+### Future Development
+* DOM adjustments
+* Allow users to comment and give points to other User's sightings
+* Link google maps API to allow geotagging of sightings

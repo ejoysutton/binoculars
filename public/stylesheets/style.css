@@ -56,12 +56,14 @@ a {
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-items: flex-end;
+	margin: 20px;
 
 }
 .userInfoBox {
 	background-color: rgba(100, 100, 100, 0.25);
-	padding: 20px;
+	padding: 10px;
 	border-radius: 15px;
+	margin: 10px;
 }
 
 .individualUserContainer {
@@ -99,6 +101,7 @@ a {
 	background-color: rgba(100, 100, 100, 0.25);
 	padding: 20px;
 	border-radius: 15px;
+	margin: 20px;
 /*	justify-content: center;*/
 }
 
