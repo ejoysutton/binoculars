@@ -9,7 +9,11 @@ router.get('/login', function(req, res) {
 
 router.post('/login', authHelpers.loginUser, function(req, res){
 	console.log('user logged in')
-  res.redirect('/user')
+	console.log('Cookies: ', req.cookies)
+	console.log('Signed Cookies: ', req.signedCookies)
+	var currentUser = req.session.currentUser;
+	// console.log(currentUser);
+  res.redirect('/user/' + currentUser.id)
 });
 
 router.delete('/', function(req, res){
